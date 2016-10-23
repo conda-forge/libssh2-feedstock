@@ -24,6 +24,7 @@ requirements:
     - cmake >2.8
     - openssl 1.0.*
     - toolchain
+    - vs2008_express_vc_python_patch  # [win64]
 
 test:
   requires:

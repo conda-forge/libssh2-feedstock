@@ -1,8 +1,9 @@
-mkdir build && cd build
+call setup_x64.bat
 
-cmake .. -G "NMake Makefiles"                  ^
+mkdir build && cd build
+cmake .. ^
+	-G "%CMAKE_GENERATOR%"                     ^
 	-DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%    ^
-	-DCMAKE_BUILD_TYPE=Release                 ^
-	-DBUILD_SHARED_LIBS=OFF
+	-DCMAKE_BUILD_TYPE=Release 
 
 cmake --build . --config Release --target INSTALL
