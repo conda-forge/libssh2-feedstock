@@ -27,6 +27,9 @@ requirements:
     - openssl 1.0.*
     - toolchain
     - zlib 1.2.*
+    # cmake->curl(7.54.1)->libssh2 brings in a cyclic dep
+    # 7.52.1 version of curl doesn't depend on libssh2
+    - curl 7.52.*
 
   run:
     - openssl 1.0.*
