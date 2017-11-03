@@ -2,8 +2,21 @@
 
 mkdir build && cd build
 
-cmake .. -DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_LIBDIR=lib
+cmake .. \
+      -DBUILD_SHARED_LIBS=OFF \
+      -DCRYPTO_BACKEND=OpenSSL \
+      -DCMAKE_INSTALL_LIBDIR=lib \
+      -DENABLE_ZLIB_COMPRESSION=ON \
+      -DCMAKE_INSTALL_PREFIX=$PREFIX
+
 cmake --build . --config Release --target install
 
-cmake .. -DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_LIBDIR=lib
+cmake .. \
+      -DBUILD_SHARED_LIBS=ON \
+      -DCRYPTO_BACKEND=OpenSSL \
+      -DCMAKE_INSTALL_LIBDIR=lib \
+      -DENABLE_ZLIB_COMPRESSION=ON \
+      -DCMAKE_INSTALL_PREFIX=$PREFIX \
+      -DCMAKE_INSTALL_RPATH=$PREFIX/lib
+
 cmake --build . --config Release --target install
