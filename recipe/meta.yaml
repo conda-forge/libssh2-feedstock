@@ -13,12 +13,11 @@ source:
 
 build:
   number: 2
+  skip: true   # [win and py36]
   features:
       - vc9    # [win and py27]
       - vc10   # [win and py34]
-      - vc14   # [win and py35]
-      - vc14   # [win and py36]
-  skip: true   # [win and py35]
+      - vc14   # [win and (py35 or py36)]
 
 requirements:
   build:
@@ -26,18 +25,17 @@ requirements:
     - cmake >2.8
     - openssl 1.0.*
     - toolchain
-    - zlib 1.2.*
+    - zlib 1.2.8
     # cmake->curl(7.54.1)->libssh2 brings in a cyclic dep
     # 7.52.1 version of curl doesn't depend on libssh2
     - curl 7.52.*
 
   run:
     - openssl 1.0.*
-    - zlib 1.2.*
+    - zlib 1.2.8
     - vc 9    # [win and py27]
     - vc 10   # [win and py34]
-    - vc 14   # [win and py35]
-    - vc 14   # [win and py36]
+    - vc14   # [win and (py35 or py36)]
 
 test:
   commands:
@@ -70,3 +68,4 @@ extra:
   recipe-maintainers:
     - shadowwalkersb
     - nehaljwani
+    - ocefpaf
