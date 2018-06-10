@@ -17,7 +17,7 @@ build:
 requirements:
   build:
     - python  # [win]
-    # This breals a dependency cycle:
+    # This breaks a dependency cycle:
     # curl->libssh2->cmake->curl
     - cmake-binary
     - openssl 1.0.*
