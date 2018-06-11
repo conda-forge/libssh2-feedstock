@@ -13,7 +13,9 @@ build:
 
 requirements:
   build:
-    - cmake
+    # This breaks a dependency cycle:
+    # curl->libssh2->cmake->curl
+    - cmake-binary
     - {{ compiler('c') }}
   host:
     - openssl
