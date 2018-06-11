@@ -13,11 +13,11 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
-  host:
     # This breaks a dependency cycle:
     # curl->libssh2->cmake->curl
     - cmake-binary
+    - {{ compiler('c') }}
+  host:
     - openssl
     - zlib
   run:
