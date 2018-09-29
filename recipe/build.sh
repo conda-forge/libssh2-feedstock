@@ -4,7 +4,7 @@
 export PATH=${PREFIX}/cmake-bin/bin:${PATH}
 
 if [[ $target_platform =~ linux.* ]]; then
-  export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
+  export LDFLAGS="$LDFLAGS -Wl,-fuse-ld=gold"
 fi
 
 mkdir build && cd build
