@@ -25,8 +25,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - make   # [unix]
-    - openssl 1.0         # [aarch64]            
-    - cmake_nosystemcurl  # [aarch64]
+    - cmake  # [aarch64]
   host:
     # This breals a dependency cycle:
     # curl->libssh2->cmake->curl
