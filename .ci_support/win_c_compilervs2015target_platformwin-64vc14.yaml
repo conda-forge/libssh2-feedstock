@@ -7,13 +7,20 @@ channel_sources:
 channel_targets:
 - conda-forge main
 openssl:
-- 1.1.1a
+- 1.1.1
 pin_run_as_build:
   openssl:
     max_pin: x.x.x
+  vc:
+    max_pin: x
   zlib:
     max_pin: x.x
 target_platform:
 - win-64
+vc:
+- '14'
+zip_keys:
+- - vc
+  - c_compiler
 zlib:
 - '1.2'
