@@ -16,8 +16,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - ninja  # [win]
     - make   # [unix]
-    - openssl 1.0         # [aarch64]            
+    - openssl 1.0         # [aarch64]
     - cmake_nosystemcurl  # [aarch64]
   host:
     # This breals a dependency cycle:
