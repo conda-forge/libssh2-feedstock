@@ -24,15 +24,13 @@ build:
 
 requirements:
   build:
+    # This breals a dependency cycle:
+    # curl->libssh2->cmake->curl
+    - cmake-binary
     - {{ compiler('c') }}
     - ninja  # [win]
     - make   # [unix]
-    - openssl 1.0         # [aarch64]            
-    - cmake_nosystemcurl  # [aarch64]
   host:
-    # This breals a dependency cycle:
-    # curl->libssh2->cmake->curl
-    - cmake-binary        # [not aarch64]
     - openssl
     - zlib
   run:
