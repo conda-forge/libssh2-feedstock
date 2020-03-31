@@ -2,7 +2,7 @@ set PATH=%PREFIX%\cmake-bin\bin;%PATH%
 
 mkdir build && cd build
 
-cmake -G "%CMAKE_GENERATOR%" ^
+cmake -G Ninja ^
 	  -D CMAKE_BUILD_TYPE=Release ^
 	  -D BUILD_SHARED_LIBS=ON ^
 	  -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
