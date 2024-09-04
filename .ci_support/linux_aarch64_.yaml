@@ -3,7 +3,7 @@ BUILD:
 c_compiler:
 - gcc
 c_compiler_version:
-- '12'
+- '13'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -19,4 +19,4 @@ openssl:
 target_platform:
 - linux-aarch64
 zlib:
-- '1.2'
+- '1'
