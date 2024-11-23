@@ -22,8 +22,7 @@ outputs:
       build:
         # This breals a dependency cycle on unix
         # curl->libssh2->cmake->curl
-        - cmake            # [win]
-        - cmake-no-system  # [not win]
+        - cmake-no-system
         - {{ compiler('c') }}   # [not (osx and arm64)]
         - {{ stdlib("c") }}     # [not (osx and arm64)]
         - {{ compiler('clang_bootstrap') }} 11.*  # [osx and arm64]
@@ -54,8 +53,7 @@ outputs:
       build:
         # This breals a dependency cycle on unix
         # curl->libssh2->cmake->curl
-        - cmake            # [win]
-        - cmake-no-system  # [not win]
+        - cmake-no-system
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - ninja  # [win]
