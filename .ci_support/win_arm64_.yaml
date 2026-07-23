@@ -9,7 +9,7 @@ channel_targets:
 libssh2:
 - '1'
 openssl:
-- '3'
+- '3.5'
 target_platform:
 - win-arm64
 zlib:
