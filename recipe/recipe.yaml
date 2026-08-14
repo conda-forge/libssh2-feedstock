@@ -52,7 +52,10 @@ outputs:
             - libssh2_publickey.h
             - libssh2_sftp.h
           lib:
-            - ssh2
+            - if: unix
+              then: ssh2
+            - if: win
+              then: libssh2
           files:
             not_exists:
               - if: unix
