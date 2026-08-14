@@ -1,15 +1,13 @@
 c_compiler:
-- vs2019
+- vs2022
 c_stdlib:
 - vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-libssh2:
-- '1'
 openssl:
-- '3'
+- '3.5'
 target_platform:
 - win-64
 zlib:

@@ -5,7 +5,7 @@ c_compiler_version:
 c_stdlib:
 - sysroot
 c_stdlib_version:
-- '2.17'
+- '2.39'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -15,6 +15,6 @@ docker_image:
 openssl:
 - '3.5'
 target_platform:
-- linux-ppc64le
+- linux-riscv64
 zlib:
 - '1'
