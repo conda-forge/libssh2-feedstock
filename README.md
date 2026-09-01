@@ -7,12 +7,11 @@ Home: https://www.libssh2.org/
 
 Package license: BSD-3-Clause
 
-Summary: the SSH library
+Summary: The SSH library
 
 Development: https://github.com/libssh2/libssh2
 
 libssh2 is a library implementing the SSH2 protocol, available under the revised BSD license.
-
 
 Current build status
 ====================

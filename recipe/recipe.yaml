@@ -1,0 +1,115 @@
+schema_version: 1
+
+context:
+  version: "1.11.1"
+
+recipe:
+  name: libssh2-split
+  version: ${{ version }}
+
+source:
+  url: https://www.libssh2.org/download/libssh2-${{ version }}.tar.gz
+  sha256: d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7
+
+build:
+  number: 1
+
+outputs:
+  - staging:
+      name: libssh2-build
+    build:
+      script: build_shared
+    requirements:
+      build:
+        # This breaks a dependency cycle on Unix: curl -> libssh2 -> cmake -> curl.
+        - cmake-no-system
+        - if: not (osx and arm64)
+          then:
+            - ${{ compiler('c') }}
+            - ${{ stdlib('c') }}
+        - if: osx and arm64
+          then:
+            - ${{ compiler('clang_bootstrap') }} 11.*
+            - cctools_${{ target_platform }}
+        - if: win
+          then: ninja
+        - if: unix
+          then: make
+      host:
+        - openssl
+        - zlib
+
+  - package:
+      name: libssh2
+    inherit: libssh2-build
+    requirements:
+      run_exports:
+        - ${{ pin_subpackage('libssh2') }}
+    tests:
+      - package_contents:
+          include:
+            - libssh2.h
+            - libssh2_publickey.h
+            - libssh2_sftp.h
+          lib:
+            - if: unix
+              then: ssh2
+            - if: win
+              then: libssh2
+          files:
+            not_exists:
+              - if: unix
+                then: lib/libssh2.a
+
+  - package:
+      name: libssh2-static
+    inherit:
+      from: libssh2-build
+      run_exports: false
+    build:
+      script: build_static
+      files:
+        - if: unix
+          then: lib/libssh2.a
+        - if: win
+          then: Library/lib/libssh2_static.lib
+    requirements:
+      build:
+        # This breaks a dependency cycle on Unix: curl -> libssh2 -> cmake -> curl.
+        - cmake-no-system
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - if: win
+          then: ninja
+        - if: unix
+          then: make
+      host:
+        - ${{ pin_subpackage('libssh2', exact=True) }}
+        - openssl
+        - zlib
+      run:
+        - ${{ pin_subpackage('libssh2', exact=True) }}
+    tests:
+      - package_contents:
+          files:
+            - if: unix
+              then: lib/libssh2.a
+            - if: win
+              then: Library/lib/libssh2_static.lib
+
+about:
+  homepage: https://www.libssh2.org/
+  repository: https://github.com/libssh2/libssh2
+  license: BSD-3-Clause
+  license_file: COPYING
+  summary: The SSH library
+  description: |
+    libssh2 is a library implementing the SSH2 protocol, available under the revised BSD license.
+
+extra:
+  feedstock-name: libssh2
+  recipe-maintainers:
+    - shadowwalkersb
+    - nehaljwani
+    - ocefpaf
+    - xhochy
