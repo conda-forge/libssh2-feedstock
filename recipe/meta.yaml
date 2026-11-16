@@ -7,9 +7,33 @@ package:
 source:
   url: https://www.libssh2.org/download/libssh2-{{ version }}.tar.gz
   sha256: d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7
+  patches:
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/cve-2026-7598.patch
+    - cve-2026-7598.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2025-15661.patch
+    - CVE-2025-15661.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-55199.patch
+    - CVE-2026-55199.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-55200.patch
+    - CVE-2026-55200.patch
+    # Prerequisite for CVE-2025-15661
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/libssh-unconst-backport.patch
+    - libssh-unconst-backport.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-66032.patch
+    - CVE-2026-66032.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-66033.patch
+    - CVE-2026-66033.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-66034.patch
+    - CVE-2026-66034.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-66035.patch
+    - CVE-2026-66035.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-58050.patch
+    - CVE-2026-58050.patch
+    # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-58051.patch
+    - CVE-2026-58051.patch
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - name: libssh2
