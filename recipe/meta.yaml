@@ -9,27 +9,38 @@ source:
   sha256: d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7
   patches:
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/cve-2026-7598.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/256d04b60d80bf1190e96b0ad1e91b2174d744b1
     - cve-2026-7598.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2025-15661.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/2dae3024897e1898d389835151f4e9606227721d
     - CVE-2025-15661.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-55199.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/17626857d20b3c9a1addfa45979dadcee1cd84a4
     - CVE-2026-55199.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-55200.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/97acf3dfda80c91c3a8c9f2372546301d4a1a7a8
     - CVE-2026-55200.patch
     # Prerequisite for CVE-2025-15661
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/libssh-unconst-backport.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/606c102e52f8447de2b745dd6c5ddf418defc519
     - libssh-unconst-backport.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-66032.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/5e4776146552d898b9c0e1b313cd093fa8dc92d0
     - CVE-2026-66032.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-66033.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/a2ed82d40964bbc0d64cd717aa0a5a892117d2e6
     - CVE-2026-66033.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-66034.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/a13bb6c773f0d55ad1628cede57e99803cd898d9
     - CVE-2026-66034.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-66035.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/42e33d81577ed4b95d4b4f6f845e5ee8efe5eeb4
     - CVE-2026-66035.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-58050.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/34497525929b9a47f03dfb81887ac896202b7e12
     - CVE-2026-58050.patch
     # https://sources.debian.org/data/main/libs/libssh2/1.11.1-6/debian/patches/CVE-2026-58051.patch
+    # Upstream: https://github.com/libssh2/libssh2/commit/a9758da45a52bc8c630ec9493804d0c6ea30b24a
     - CVE-2026-58051.patch
 
 build:
