@@ -10,6 +10,11 @@ export PATH=${PREFIX}/cmake-bin/bin:${PATH}
 
 mkdir build && cd build
 
+if [[ $target_platform =~ linux.* ]]; then
+  # newer cmake fails to run the bare ar name from CMAKE_ARGS on linux
+  CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_AR=$(command -v ${AR})"
+fi
+
 cmake ${CMAKE_ARGS} \
       -DCMAKE_POLICY_DEFAULT_CMP0042=NEW \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \

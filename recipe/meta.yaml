@@ -44,7 +44,7 @@ source:
     - CVE-2026-58051.patch
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: libssh2
